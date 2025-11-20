@@ -9,5 +9,5 @@ import { Businesses } from './businesses/businesses';
   styleUrl: './app.css'
 })
 export class App {
-  title = 'bizFE';
+  title = 'Business review';
 }
