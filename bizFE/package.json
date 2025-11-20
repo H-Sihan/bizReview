@@ -30,6 +30,7 @@
     "@angular/compiler": "^20.1.0",
     "@angular/core": "^20.1.0",
     "@angular/forms": "^20.1.0",
+    "@angular/google-maps": "^21.0.0",
     "@angular/platform-browser": "^20.1.0",
     "@angular/router": "^20.1.0",
     "bootstrap": "^5.3.8",

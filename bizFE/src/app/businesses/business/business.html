@@ -1,1 +1,24 @@
-<p>business works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            @for (business of business_list; track business._id) {
+            <div class="card text-white bg-primary mb-3">
+                <div class="card-header">
+                    {{business.name}}
+                </div>
+                <div class="card-body">
+                    {{business.town}}
+                </div>
+                <div class="card-footer">
+                    <span *ngFor="let star of [].constructor(business.rating)">
+                        <img src="../../../../assets/images/star.png" alt="stars for rating"
+                        style="width: 30px; height: 30px;">
+                    </span>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>
+
+<google-map height="400px" width="400" [options]="map_options"></google-map>
