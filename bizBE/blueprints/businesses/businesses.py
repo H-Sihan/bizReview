@@ -10,7 +10,6 @@ businesses = globals.db.biz
 businesses_bp = Blueprint("businesses_bp", __name__)
 
 @businesses_bp.route('/', methods=['GET'])
-@jwt_required
 def showBusinesses():
     return jsonify({"message":"Welcome to Coffee mart"})
 

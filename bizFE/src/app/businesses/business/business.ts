@@ -3,11 +3,12 @@ import { BusinessData } from '../../services/business-data';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { GoogleMapsModule } from '@angular/google-maps';
-import { tick } from '@angular/core/testing';
+import { WebService } from '../../services/web-service';
 
 @Component({
   selector: 'app-business',
   imports: [RouterLink, CommonModule, GoogleMapsModule],
+  providers:[WebService],
   templateUrl: './business.html',
   styleUrl: './business.css',
 })
@@ -20,13 +21,18 @@ export class Business {
 
 
   constructor (private route: ActivatedRoute,
-               private businessData: BusinessData) { }
+               private businessData: BusinessData,
+               private webService: WebService) { }
 
   ngOnInit(){
-    this.business_list = this.businessData.getBusiness(
-        this.route.snapshot.paramMap.get('id'))
-        this.business_lat = this.business_list[0].location.coordinates[0];
-        this.business_lng = this.business_list[0].location.coordinates[1];
+    this.business_list = this.webService.getBusiness(
+        this.route.snapshot.paramMap.get('id')).subscribe(
+          (response) => {
+            this.business_list = [response]
+            this.business_lat = this.business_list[0].location.coordinates[0];
+            this.business_lng = this.business_list[0].location.coordinates[1];
+          }
+        )
 
         this.map_options = {
           mapId:"Demo",

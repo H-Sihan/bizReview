@@ -7,5 +7,19 @@
         <li class="nav-item">
             <a class="nav-link" [routerLink]="'/businesses'">Businesses</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="'/login'">Login</a>
+        </li>
     </ul>
+    <!-- When NOT logged in -->
+    <a routerLink="/login" *ngIf="!isLoggedIn">Login</a>
+
+    <!-- When logged in -->
+    <span *ngIf="isLoggedIn" style="margin-left:auto; margin-right:10px;">
+        Logged in as: <strong>{{ username }}</strong>
+    </span>
+
+    <button *ngIf="isLoggedIn" routerLink="/login" (click)="onLogout()" class="logout-btn">
+        Logout
+    </button>
 </div>

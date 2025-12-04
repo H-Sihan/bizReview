@@ -1,0 +1,22 @@
+<!-- src/app/login/login.html -->
+<div class="login-box">
+    <h2>Login</h2>
+  
+    <div class="field">
+      <label>Username</label>
+      <input type="text" [(ngModel)]="username" />
+    </div>
+  
+    <div class="field">
+      <label>Password</label>
+      <input type="password" [(ngModel)]="password" />
+    </div>
+  
+    <div class="buttons">
+      <button type="button" (click)="onLogin()">Login</button>
+      <button type="button" (click)="onLogout()">Logout</button>
+    </div>
+  
+    <p class="message">{{ message }}</p>
+  </div>
+  
